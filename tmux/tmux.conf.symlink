@@ -1,0 +1,55 @@
+# unbind default prefix and set it to Ctrl+a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+# for nested tmux sessions
+bind-key a send-prefix
+
+# Rather than constraining window size to the maximum size of any client
+# connected to the *session*, constrain window size to the maximum size of any
+# client connected to *that window*. Much more reasonable.
+setw -g aggressive-resize on
+
+# make delay shorter
+set -sg escape-time
+
+# make window/pane index start with 1
+set -g base-index 1
+setw -g pane-base-index 1
+
+# doesnt change windows name automatically
+set-option -g allow-rename off
+
+###################
+### KeyBindings ###
+###################
+
+# reload config file
+bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+
+# open a new window
+bind N new-window
+
+# split window
+bind | split-window -h
+bind - split-window -v
+
+# vim style pane movement shortcuts
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# vim style pane resizing shortcuts
+bind H resize-pane -L 10
+bind J resize-pane -D 10
+bind K resize-pane -U 10
+bind L resize-pane -R 10
+
+#####################
+### Color & Style ###
+#####################
+
+source ~/.dotfiles/tmux/theme.sh
+
