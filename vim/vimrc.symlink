@@ -1,12 +1,19 @@
 " PLUGINS (https://github.com/junegunn/vim-plug)
 " =========================================================
 
+" References
+" https://github.com/fatih/dotfiles/
+" https://github.com/nicknisi/dotfiles/
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 
 " Extra plugins (useful for Docker based dev environments)
 if filereadable(expand('~/.vim/plugins.vim'))
@@ -29,6 +36,7 @@ set laststatus=2 		" Always display the satus line
 set encoding=utf-8 		" Set default encoding to UTF-8
 set autoread         		" Automatically reread changed files without asking
 set autoindent
+set backspace=indent,eol,start  " Makes backspace key more powerful.
 set incsearch			" Shows search matches while typing
 set hlsearch			" Highlight search matches
 set ignorecase			" Search case insensitive...
@@ -52,6 +60,9 @@ set nocursorline          	" Do not highlight the cursor line for speed
 set pumheight=10		" Popup menu height
 
 
+" Invisible chars
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
 " color
 syntax enable
 set t_Co=256
@@ -64,6 +75,22 @@ colorscheme molokai
 " Vertical help screen
 command! -nargs=* -complete=help Help vertical belowright help <args>
 autocmd FileType help wincmd L
+
+" filetypes
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+
+autocmd BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
+autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
+autocmd BufNewFile,BufRead *.vim,*.vim.symlink setlocal expandtab shiftwidth=2 tabstop=2
+
+autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+
+augroup filetypedetect
+	autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
+	autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
+augroup END
+
 
 " MAPPINGS
 " =========================================================
@@ -103,6 +130,11 @@ nnoremap <silent> <F5> :source $MYVIMRC<CR>
 " Do not show q: window
 map q: :q
 
+" Toggle invisible chars
+noremap <F3> :set list! list?<CR>
+inoremap <F3> :set list! list?<CR>
+cnoremap <F3> :set list! list?<CR>
+
 
 " ---------- NerdTree ----------
 " For toggling
@@ -110,3 +142,92 @@ noremap <leader>n :NERDTreeToggle<CR>
 noremap <leader>f :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=1
+
+
+" STATUSLINE
+" =========================================================
+
+let s:modes = {
+	\ 'n': 'NORMAL',
+	\ 'i': 'INSERT',
+	\ 'R': 'REPLACE',
+	\ 'v': 'VISUAL',
+	\ 'V': 'V-LINE',
+	\ "\<C-v>": 'V-BLOCK',
+	\ 'c': 'COMMAND',
+	\ 's': 'SELECT',
+	\ 'S': 'S-LINE',
+	\ "\<C-s>": 'S-BLOCK',
+	\ 't': 'TERMINAL'
+	\ }
+
+let s:prev_mode = ""
+
+function! StatusLineMode()
+	let cur_mode = get(s:modes, mode(), '')
+
+	" do not update highlight if the mode did not change
+	if cur_mode == s:prev_mode
+		return cur_mode
+	endif
+
+	if cur_mode == "NORMAL"
+		exe 'hi! StatusLine ctermfg=236'
+		exe 'hi! myModeColor cterm=bold ctermbg=148 ctermfg=22'
+	elseif cur_mode == "INSERT"
+		exe 'hi! myModeColor cterm=bold ctermbg=23 ctermfg=231'
+	elseif cur_mode == "VISUAL" || cur_mode == "V-LINE" || cur_mode == "V-BLOCK"
+		exe 'hi! StatusLine ctermfg=236'
+		exe 'hi! myModeColor cterm=bold ctermbg=208 ctermfg=88'
+	endif
+
+	let s:prev_mode = cur_mode
+	return cur_mode
+endfunction
+
+function! StatusLineFileType()
+	return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! StatusLinePercent()
+	return (100 * line('.') / line('$')) . '%'
+endfunction
+
+function! StatusLineLeftInfo()
+	let branch = fugitive#head()
+	let filename = '' != expand('%:t') ? expand('%:t') : '[No Name]'
+	if branch !=# ''
+		return printf("%s | %s", branch, filename)
+	endif
+	return filename
+endfunction
+
+exe 'hi! myInfoColor ctermbg=240 ctermfg=252'
+
+" start build the status line
+set statusline=
+
+" mode with custom colors
+set statusline+=%#myModeColor#
+set statusline+=%{StatusLineMode()}
+set statusline+=%*
+
+" left information bar (after mode)
+set statusline+=%#myInfoColor#
+set statusline+=\ %{StatusLineLeftInfo()}
+set statusline+=\ %*
+
+" go command status (requires vim-go)
+set statusline+=%#goStatuslineColor#
+set statusline+=%{go#statusline#Show()}
+set statusline+=%*
+
+"right section separator
+set statusline+=%=
+
+" filetype, percentage, line number and column number
+set statusline+=%#myInfoColor#
+set statusline+=\ %{StatusLineFileType()}\ %{StatusLinePercent()}\ %l:%v
+set statusline+=\ %*
+
+
