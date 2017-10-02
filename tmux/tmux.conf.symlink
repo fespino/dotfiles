@@ -12,7 +12,7 @@ bind-key a send-prefix
 setw -g aggressive-resize on
 
 # make delay shorter
-set -sg escape-time
+set -sg escape-time 0
 
 # make window/pane index start with 1
 set -g base-index 1
