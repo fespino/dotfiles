@@ -1,13 +1,23 @@
 " PLUGINS (https://github.com/junegunn/vim-plug)
+" =========================================================
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'tomasr/molokai'
+Plug 'scrooloose/nerdtree'
+Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
+Plug 'elzr/vim-json', {'for' : 'json'}
+
+" Extra plugins (useful for Docker based dev environments)
+if filereadable(expand('~/.vim/plugins.vim'))
+  so expand('~/.vim/plugins.vim')
+endif
 
 call plug#end()
 
 
 " SETTINGS
+" =========================================================
 
 set nocompatible
 filetype off
@@ -54,3 +64,49 @@ colorscheme molokai
 " Vertical help screen
 command! -nargs=* -complete=help Help vertical belowright help <args>
 autocmd FileType help wincmd L
+
+" MAPPINGS
+" =========================================================
+
+" With a map leader it's possible to do extra key combinations
+let mapleader = ','
+
+" put quickfix window always to the bottom
+autocmd FileType qf wincmd J
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal wrap
+augroup END
+
+" Fast saving
+nnoremap <leader>w :w!<CR>
+nnoremap <leader>q :q!<CR>
+
+" Remove search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Close all but the current one
+nnoremap <leader>o :only<CR>
+
+" Better split switching
+map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+
+" Print full path
+map <C-f> :echo expand("%:p")<CR>
+
+" Reload configuration
+nnoremap <silent> <F5> :source $MYVIMRC<CR>
+
+" Do not show q: window
+map q: :q
+
+
+" ---------- NerdTree ----------
+" For toggling
+noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>f :NERDTreeFind<CR>
+
+let NERDTreeShowHidden=1
