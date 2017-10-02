@@ -1,0 +1,56 @@
+" PLUGINS (https://github.com/junegunn/vim-plug)
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tomasr/molokai'
+
+call plug#end()
+
+
+" SETTINGS
+
+set nocompatible
+filetype off
+filetype plugin indent on
+
+set ttyfast 			" Fast screen redrawing
+
+set laststatus=2 		" Always display the satus line
+set encoding=utf-8 		" Set default encoding to UTF-8
+set autoread         		" Automatically reread changed files without asking
+set autoindent
+set incsearch			" Shows search matches while typing
+set hlsearch			" Highlight search matches
+set ignorecase			" Search case insensitive...
+set smartcase			" ... unless it begins with uppercase
+set mouse=a			" Enable mouse mode
+
+set noerrorbells		" No beeps
+set number			" Show line numbers
+set showcmd			" Show me what I am typing
+set noswapfile			" Dont use swap files
+set nobackup			" Dont create backup files
+set splitright			" Split vertical windows right to the current window
+set splitbelow			" Split horizontal windows below the current window
+set autowrite			" Automatically save before :next, :make, etc.
+set hidden			" Hide, not unload, a buffer when abandoned
+set fileformats=unix,dos,mac 	" Prefer Unix over Windows over OS 9 formats
+set completeopt=menu,menuone    " Show pop up menu for completion even with only 1 possible result
+set nocursorcolumn		" Do not highlight the cursor column for speed
+set nocursorline          	" Do not highlight the cursor line for speed
+
+set pumheight=10		" Popup menu height
+
+
+" color
+syntax enable
+set t_Co=256
+
+let g:rehash256=1
+set background=dark
+let g:molokai_original=1
+colorscheme molokai
+
+" Vertical help screen
+command! -nargs=* -complete=help Help vertical belowright help <args>
+autocmd FileType help wincmd L

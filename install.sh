@@ -8,8 +8,14 @@ echo "Installing dotfiles."
 
 source install/link.sh
 
-echo "creating vim directories"
+echo "Creating vim directories"
 mkdir -p ~/.vim-tmp
+
+echo "Installing vim-plug..."
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "Done!"
 
 if ! command_exists zsh; then
     echo "zsh not found. Please install and then re-run installation script"
