@@ -11,9 +11,12 @@ Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go' 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
 
 " Extra plugins (useful for Docker based dev environments)
 if filereadable(expand('~/.vim/plugins.vim'))
@@ -42,7 +45,7 @@ set hlsearch			" Highlight search matches
 set ignorecase			" Search case insensitive...
 set smartcase			" ... unless it begins with uppercase
 set mouse=a			" Enable mouse mode
-
+set updatetime=300		" Faster update time
 set noerrorbells		" No beeps
 set number			" Show line numbers
 set showcmd			" Show me what I am typing
@@ -56,7 +59,8 @@ set fileformats=unix,dos,mac 	" Prefer Unix over Windows over OS 9 formats
 set completeopt=menu,menuone    " Show pop up menu for completion even with only 1 possible result
 set nocursorcolumn		" Do not highlight the cursor column for speed
 set nocursorline          	" Do not highlight the cursor line for speed
-
+set noshowmode			" We already show the mode in the status line
+set noshowmatch			" Do not show matching brackes by flickering
 set pumheight=10		" Popup menu height
 
 
@@ -71,6 +75,10 @@ let g:rehash256=1
 set background=dark
 let g:molokai_original=1
 colorscheme molokai
+
+" Do not show cursor-like block in the matching delimiters
+hi MatchParen      guifg=#FD971F guibg=#000000 gui=bold
+hi MatchParen      ctermfg=208  ctermbg=233 cterm=bold
 
 " Vertical help screen
 command! -nargs=* -complete=help Help vertical belowright help <args>
@@ -97,6 +105,11 @@ augroup END
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ','
+
+" quickfix shortcuts
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
 
 " put quickfix window always to the bottom
 autocmd FileType qf wincmd J
@@ -132,8 +145,8 @@ map q: :q
 
 " Toggle invisible chars
 noremap <F3> :set list! list?<CR>
-inoremap <F3> :set list! list?<CR>
-cnoremap <F3> :set list! list?<CR>
+inoremap <F3> <C-o>:set list! list?<CR>
+cnoremap <F3> <C-c>:set list! list?<CR>
 
 
 " ---------- NerdTree ----------
@@ -143,6 +156,34 @@ noremap <leader>f :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=1
 
+" --------- Fugitive -----------
+vnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Gblame<CR>
+
+" --------- vim-go -----------
+let g:go_list_type = "quickfix"
+let g:go_metalinter_autosave = 1
+
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+
+let g:go_autodetect_gopath = 1
+
+
+augroup go
+	autocmd!
+
+	autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
+	autocmd FileType go nmap <silent> <leader>t <Plug>(go-test)
+	autocmd FileType go nmap <silent> <leader>r <Plug>(go-run)
+	autocmd FileType go nmap <silent> <leader>c <Plug>(go-coverage-toggle)
+	autocmd FileType go nmap <silent> <leader>i <Plug>(go-info)
+
+	autocmd FileType go command! -bang A call  go#alternate#Switch(<bang>0, 'edit')
+	autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+	autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+	autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
 
 " STATUSLINE
 " =========================================================
