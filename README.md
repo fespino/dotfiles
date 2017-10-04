@@ -7,3 +7,4 @@
 * vim python
 * vim cheatsheets
 * dev env Dockerfiles
+* vim modular refactoring
