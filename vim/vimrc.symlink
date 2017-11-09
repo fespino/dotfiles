@@ -11,7 +11,8 @@ Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'fatih/vim-go' 
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -185,6 +186,13 @@ augroup go
 	autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
+" ---------- rust.vim -------------------
+let g:rustfmt_autosave = 1
+
+augroup rust
+	autocmd!
+	autocmd FileType rust nmap <silent> <leader>r :RustRun<CR>
+augroup END
 
 " ------------------ CtrlP -----------------------------
 let g:ctrlp_cmd = 'CtrlPMRU'
