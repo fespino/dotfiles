@@ -26,14 +26,29 @@ set-option -g allow-rename off
 ###################
 
 # reload config file
-bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+bind C-r source-file ~/.tmux.conf \; display "Config reloaded!"
+
+# rename session
+bind R command-prompt 'rename-session %%'
 
 # open a new window
 bind N new-window
 
+# last window
+bind C-a last-window
+
+# kill window
+bind X kill-window
+
 # split window
 bind | split-window -h
 bind - split-window -v
+
+# rename window
+bind r command-prompt 'rename-window %%'
+
+# kill pane
+bind x kill-pane
 
 # vim style pane movement shortcuts
 bind h select-pane -L
