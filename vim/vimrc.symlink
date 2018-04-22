@@ -4,20 +4,30 @@
 " References
 " https://github.com/fatih/dotfiles/
 " https://github.com/nicknisi/dotfiles/
+" https://janjiss.com/walkthrough-of-my-vimrc-file-for-ruby-development/ 
 
 call plug#begin('~/.vim/plugged')
+
+" Dependencies of snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'honza/vim-snippets'
 
 Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'garbas/vim-snipmate'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-dispatch'
+
 
 " Extra plugins (useful for Docker based dev environments)
 if filereadable(expand('~/.vim/plugins.vim'))
@@ -77,6 +87,10 @@ set background=dark
 let g:molokai_original=1
 colorscheme molokai
 
+" Show trailing whitespace and spaces before a tab:
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\\t/
+
 " Do not show cursor-like block in the matching delimiters
 hi MatchParen      guifg=#FD971F guibg=#000000 gui=bold
 hi MatchParen      ctermfg=208  ctermbg=233 cterm=bold
@@ -86,7 +100,6 @@ command! -nargs=* -complete=help Help vertical belowright help <args>
 autocmd FileType help wincmd L
 
 " filetypes
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 
 autocmd BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
@@ -149,6 +162,17 @@ noremap <F3> :set list! list?<CR>
 inoremap <F3> <C-o>:set list! list?<CR>
 cnoremap <F3> <C-c>:set list! list?<CR>
 
+augroup ruby
+  autocmd!
+  
+  autocmd FileType ruby map <leader>c :call <CR>
+  autocmd FileType ruby nmap <silent> <leader>c :TestFile<CR>
+  autocmd FileType ruby nmap <silent> <leader>s :TestNearest<CR>
+  autocmd FileType ruby map <leader>t :A<CR>
+  autocmd FileType ruby map <leader>r :r<CR>
+  " Ruby hash syntax conversion
+  autocmd FileType ruby nnoremap <F12> :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<return>
+augroup END
 
 " ---------- NerdTree ----------
 " For toggling
@@ -160,39 +184,6 @@ let NERDTreeShowHidden=1
 " --------- Fugitive -----------
 vnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gb :Gblame<CR>
-
-" --------- vim-go -----------
-let g:go_list_type = "quickfix"
-let g:go_metalinter_autosave = 1
-
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-
-let g:go_autodetect_gopath = 1
-
-
-augroup go
-	autocmd!
-
-	autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
-	autocmd FileType go nmap <silent> <leader>t <Plug>(go-test)
-	autocmd FileType go nmap <silent> <leader>r <Plug>(go-run)
-	autocmd FileType go nmap <silent> <leader>c <Plug>(go-coverage-toggle)
-	autocmd FileType go nmap <silent> <leader>i <Plug>(go-info)
-
-	autocmd FileType go command! -bang A call  go#alternate#Switch(<bang>0, 'edit')
-	autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-	autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-	autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-augroup END
-
-" ---------- rust.vim -------------------
-let g:rustfmt_autosave = 1
-
-augroup rust
-	autocmd!
-	autocmd FileType rust nmap <silent> <leader>r :RustRun<CR>
-augroup END
 
 " ------------------ CtrlP -----------------------------
 let g:ctrlp_cmd = 'CtrlPMRU'
@@ -285,11 +276,6 @@ set statusline+=%*
 set statusline+=%#myInfoColor#
 set statusline+=\ %{StatusLineLeftInfo()}
 set statusline+=\ %*
-
-" go command status (requires vim-go)
-set statusline+=%#goStatuslineColor#
-set statusline+=%{go#statusline#Show()}
-set statusline+=%*
 
 "right section separator
 set statusline+=%=
