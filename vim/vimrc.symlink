@@ -28,6 +28,9 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
 
+Plug 'vim-syntastic/syntastic'
+
+" Plug 'tpope/vim-cucumber'
 
 " Extra plugins (useful for Docker based dev environments)
 if filereadable(expand('~/.vim/plugins.vim'))
@@ -204,6 +207,15 @@ let g:delimitMate_expand_inside_quotes = 0
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)' 
 
 
+" -------------------- syntastic -------------------------
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_ruby_checkers = ['rubocop'] 
+
 " STATUSLINE
 " =========================================================
 
@@ -279,6 +291,11 @@ set statusline+=\ %*
 
 "right section separator
 set statusline+=%=
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " filetype, percentage, line number and column number
 set statusline+=%#myInfoColor#
