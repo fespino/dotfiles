@@ -19,6 +19,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+
 " Extra plugins (useful for Docker based dev environments)
 if filereadable(expand('~/.vim/plugins.vim'))
   so expand('~/.vim/plugins.vim')
@@ -63,7 +65,6 @@ set nocursorline          	" Do not highlight the cursor line for speed
 set noshowmode			" We already show the mode in the status line
 set noshowmatch			" Do not show matching brackes by flickering
 set pumheight=10		" Popup menu height
-
 
 " Invisible chars
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
