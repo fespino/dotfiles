@@ -114,7 +114,7 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9: Tools"
 set $ws10 "10: Music"
 
 # switch to workspace
@@ -201,3 +201,6 @@ bar {
 exec_always --no-startup-id /usr/bin/feh --randomize --bg-fill ~/Pictures/wallpapers/*
 
 bindsym $mod+shift+x exec i3lock
+
+# Use flameshot for screen capture
+bindsym Print exec "flameshot gui"
