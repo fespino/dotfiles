@@ -4,6 +4,9 @@
 env:
   TERM: alacritty
 
+shell:
+  program: "tmux"
+
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
