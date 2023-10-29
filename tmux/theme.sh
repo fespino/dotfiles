@@ -27,14 +27,14 @@ set-option -g status-style fg=$tm_color_active,bg=default,default
 # set-window-option -g window-status-bg default
 
 set-window-option -g window-status-style fg=$tm_color_inactive,bg=default
-set -g window-status-format "#I #W"
+set -g window-status-format "#I:#W"
 
 # active window title colors
 # set-window-option -g window-status-current-fg $tm_color_active
 # set-window-option -g window-status-current-bg default
 
 set-window-option -g window-status-current-style fg=$tm_color_active,bg=default
-set-window-option -g window-status-current-format "#[bold]#I #W"
+set-window-option -g window-status-current-format "#[bold]#I:#W"
 
 # pane border
 set-option -g pane-border-style fg=$tm_color_inactive
@@ -54,7 +54,8 @@ set-window-option -g clock-mode-colour $tm_color_active
 
 tm_date="#[fg=$tm_color_inactive] %R %d %b"
 tm_host="#[fg=$tm_color_feature,bold]#h"
-tm_session_name="#[fg=$tm_color_feature,bold]#S"
+tm_session_name="#[fg=$tm_color_feature]#S"
 
 set -g status-left ' '$tm_session_name' '
-set -g status-right $tm_date' '$tm_host' '
+# set -g status-right $tm_date' '$tm_host' '
+set -g status-right $tm_date' '
