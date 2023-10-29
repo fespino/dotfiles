@@ -18,9 +18,9 @@ font:
   # UI for powerline & tmux bottom bar.
   normal:
     # Font name
-    family: Dank Mono 
+    family: Dank Mono
     # Font face
-    style: Regular 
+    style: Regular
 
   # Bold font face
   bold:
@@ -46,21 +46,19 @@ font:
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing
   offset:
-   x: 0
-   y: 4
+    x: 0
+    y: 4
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
   # aligned with the cursor, this is to make sure they center align.
   # This offset should usually be 1/2 of the above offset-y being set.
   glyph_offset:
-   x: 0
-   # Keeping this as half of offset to vertically align the text in cursor
-   y: 2
-
+    x: 0
+    # Keeping this as half of offset to vertically align the text in cursor
+    y: 2
   # Better font rendering for mac
   # use_thin_strokes: true
-
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
@@ -75,42 +73,44 @@ live_config_reload: true
 # A great reference: https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/#make-alacritty-feel-like-iterm2
 key_bindings:
   # Use command + [ - to go to previous tmux window
-  - { key: LBracket, mods: Command, chars: "\x5c\x70" }
+  - { key: LBracket, mods: Command, chars: "\\p" }
   # Use command + ] - to go to previous tmux window
-  - { key: RBracket, mods: Command, chars: "\x5c\x6e" }
+  - { key: RBracket, mods: Command, chars: "\\n" }
   # ctrl-^ doesn't work in some terminals like alacritty
   - { key: Key6, mods: Control, chars: "\x1e" }
 
 # Colors (Night Owl by Sarah Drasner)
 colors:
+  name: TokyoNight Night
+  author: Folke
   # Default colors
   primary:
-    background: '0x011627'
-    foreground: '0xd6deeb'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0xffffff'
-    cursor: '0x344552'
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xef5350'
-    green:   '0x22da6e'
-    yellow:  '0xaddb67'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x21c7a8'
-    white:   '0xffffff'
+    black: '0x15161E'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
 
   # Bright colors
   bright:
-    black:   '0x575656'
-    red:     '0xef5350'
-    green:   '0x22da6e'
-    yellow:  '0xffeb95'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x7fdbca'
-    white:   '0xffffff'
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+theme: Tokyonight_Night
