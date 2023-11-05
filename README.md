@@ -22,3 +22,9 @@ connect <MAC>
 ```
 
 Then open Pulseaudio and control it as any other audio device.
+
+If you want to automatically connect to the device in the future:
+
+```
+trust <MAC>
+``` 
