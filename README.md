@@ -28,3 +28,14 @@ If you want to automatically connect to the device in the future:
 ```
 trust <MAC>
 ``` 
+
+### If bluetoothctl starts giving errors when trying to connect
+
+```
+sudo apt-get install pulseaudio-module-bluetooth
+sudo killall pulseaudio
+pulseaudio --start    
+sudo systemctl restart bluetooth
+```
+
+
