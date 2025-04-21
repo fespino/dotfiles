@@ -108,7 +108,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Browser"
 set $ws2 "2: Terminals"
-set $ws3 "3: Editor"
+set $ws3 "3"
 set $ws4 "4: Slack"
 set $ws5 "5"
 set $ws6 "6"
@@ -146,11 +146,6 @@ bindsym $mod+m move workspace to output next
 
 # Workspace back and forth
 workspace_auto_back_and_forth yes
-
-# Assign windows to workspaces
-assign [class="Alacritty"] $ws2
-assign [class="brave-browser"] $ws1
-# assign [class="code"] $ws3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -195,6 +190,7 @@ for_window [class=".*"] client.focused  #77dd77   #285577   #ffffff   #2e9ef4   
 # finds out, if available)
 bar {
         status_command i3status
+        font pango:monospace 7
 }
 
 # Random wallpapers from ~/Pictures/wallpapers folder
