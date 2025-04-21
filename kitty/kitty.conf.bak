@@ -1,0 +1,6 @@
+# BEGIN_KITTY_THEME
+# Batman
+include current-theme.conf
+# END_KITTY_THEME
+
+font_size 12.0
