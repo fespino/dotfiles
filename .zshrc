@@ -118,6 +118,7 @@ alias plat="cd ~/code/cofi/platform"
 alias codea="cd ~/code/codeagents"
 alias dots="cd ~/.dotfiles"
 alias ct="docker exec -it cofi_backend pytest"
+alias ctd="docker exec -it cofi_backend pytest --durations=10"
 alias ctk="docker exec -it cofi_backend pytest -sk"
 alias amen="git commit --amend --no-edit"
 alias ssh="TERM=xterm-256color ssh"
@@ -156,3 +157,5 @@ esac
 # pnpm end
 
 
+# fzf preview with bat
+alias p='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
