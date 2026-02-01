@@ -58,6 +58,8 @@
 
 - **BOOT-05**: Remote bootstrap via `curl | bash` for fresh machines
 - **BOOT-06**: Selective install (choose specific components)
+- **BOOT-07**: Sudo keep-alive pattern prevents timeout during long installs
+- **BOOT-08**: Scripts use portable constructs or abstract BSD vs GNU differences
 
 ### Shell Improvements
 
@@ -66,6 +68,7 @@
 ### Additional Integrations
 
 - **APP-05**: Git config with conditional includes for work/personal
+- **APP-06**: Git credential helper configured per platform (osxkeychain/cache)
 
 ## Out of Scope
 
@@ -107,10 +110,18 @@
 | DOC-02 | Phase 6 | Pending |
 | DOC-03 | Phase 6 | Pending |
 | DOC-04 | Phase 6 | Pending |
+| BOOT-05 | Phase 7 (v2) | Pending |
+| BOOT-06 | Phase 7 (v2) | Pending |
+| BOOT-07 | Phase 7 (v2) | Pending |
+| BOOT-08 | Phase 7 (v2) | Pending |
+| SHELL-05 | Phase 8 (v2) | Pending |
+| APP-05 | Phase 8 (v2) | Pending |
+| APP-06 | Phase 8 (v2) | Pending |
 
 **Coverage:**
-- v1 requirements: 26 total
-- Mapped to phases: 26
+- v1 requirements: 26 total (Phases 0-6)
+- v2 requirements: 7 total (Phases 7-8)
+- Mapped to phases: 33
 - Unmapped: 0
 
 ---

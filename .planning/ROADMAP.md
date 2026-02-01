@@ -18,6 +18,11 @@ This roadmap transforms a collection of config files into a cross-platform boots
 - [ ] **Phase 5: Language Runtimes** - Node, Python via mise; optional Elixir, Rust
 - [ ] **Phase 6: Documentation** - README, inline comments, decision log, keybindings
 
+### v2 Milestone
+
+- [ ] **Phase 7: Enhanced Bootstrap** - Remote install, selective components, robustness
+- [ ] **Phase 8: Polish** - Fast startup, git config per-platform, credential helpers
+
 ## Phase Details
 
 ### Phase 0: Initial Fixes
@@ -117,6 +122,37 @@ Plans:
 Plans:
 - [ ] 06-01: TBD
 
+---
+
+## v2 Milestone
+
+### Phase 7: Enhanced Bootstrap
+**Goal**: Bootstrap is robust, flexible, and works from a fresh machine with one curl command
+**Depends on**: Phase 6 (v1 complete)
+**Requirements**: BOOT-05, BOOT-06, BOOT-07, BOOT-08
+**Success Criteria** (what must be TRUE):
+  1. User can run `curl -sL <url> | bash` to bootstrap from a fresh machine
+  2. User can selectively install components (e.g., `./install.sh --only shell,tmux`)
+  3. Sudo credentials don't timeout during long package installations
+  4. Scripts work identically on macOS (BSD) and Linux (GNU) without errors
+**Plans**: TBD
+
+Plans:
+- [ ] 07-01: TBD
+
+### Phase 8: Polish
+**Goal**: Optimized performance and seamless git workflow across machines
+**Depends on**: Phase 7
+**Requirements**: SHELL-05, APP-05, APP-06
+**Success Criteria** (what must be TRUE):
+  1. Shell startup time is under 100ms (`time zsh -i -c exit`)
+  2. Git config uses conditional includes for work vs personal repos
+  3. Git credential helper auto-configured per platform (osxkeychain on Mac, cache on Linux)
+**Plans**: TBD
+
+Plans:
+- [ ] 08-01: TBD
+
 ## Progress
 
 **Execution Order:**
@@ -131,9 +167,12 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 4. Application Configs | 0/TBD | Not started | - |
 | 5. Language Runtimes | 0/TBD | Not started | - |
 | 6. Documentation | 0/TBD | Not started | - |
+| **v2 Milestone** |  |  |  |
+| 7. Enhanced Bootstrap | 0/TBD | Not started | - |
+| 8. Polish | 0/TBD | Not started | - |
 
 ---
 *Created: 2026-02-01*
-*Updated: 2026-02-01 — added Phase 0 for initial fixes*
-*Depth: standard (7 phases)*
-*Coverage: 26/26 requirements mapped*
+*Updated: 2026-02-01 — added Phase 0, v2 milestone (Phases 7-8)*
+*Depth: standard (9 phases across 2 milestones)*
+*Coverage: 33/33 requirements mapped (26 v1 + 7 v2)*
