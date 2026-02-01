@@ -1,2 +1,0 @@
-- [ ] .zshrc
-- [ ] init script
