@@ -34,10 +34,11 @@ This roadmap transforms a collection of config files into a cross-platform boots
   2. XDG base directories are set in shell config (`XDG_CONFIG_HOME`, `XDG_DATA_HOME`, `XDG_CACHE_HOME`)
   3. All hardcoded `/Users/fespino/` and `/home/fespino/` paths in .zshrc replaced with `$HOME`
   4. Pre-commit hook installed that scans for secrets (gitleaks or detect-secrets)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 00-01: TBD
+- [ ] 00-01-PLAN.md — Create .gitignore, add XDG variables to .zshrc, verify no hardcoded paths (INIT-01, INIT-02, INIT-03)
+- [ ] 00-02-PLAN.md — Install pre-commit with gitleaks hook for secret scanning (INIT-04)
 
 ### Phase 1: Foundation
 **Goal**: User can run install.sh to safely set up symlinks with backup protection
@@ -165,7 +166,7 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 0. Initial Fixes | 0/TBD | Not started | - |
+| 0. Initial Fixes | 0/2 | Planned | - |
 | 1. Foundation | 0/TBD | Not started | - |
 | 2. Shell Configuration | 0/TBD | Not started | - |
 | 3. Package Management | 0/TBD | Not started | - |
@@ -178,6 +179,6 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 ---
 *Created: 2026-02-01*
-*Updated: 2026-02-01 — added Phase 0, v2 milestone (Phases 7-8)*
+*Updated: 2026-02-01 — Phase 0 planned (2 plans in 1 wave)*
 *Depth: standard (9 phases across 2 milestones)*
 *Coverage: 38/38 requirements mapped (31 v1 + 7 v2)*
