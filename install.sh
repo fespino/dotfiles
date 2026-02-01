@@ -251,6 +251,9 @@ LINK_SOURCES=(
     # Vim configuration
     "${DOTFILES_DIR}/vim"
 
+    # Neovim configuration (git submodule)
+    "${DOTFILES_DIR}/nvim"
+
     # Scripts
     "${DOTFILES_DIR}/bin/cht.sh"
 )
@@ -267,6 +270,9 @@ LINK_TARGETS=(
 
     # Vim configuration
     "${HOME}/.vim"
+
+    # Neovim configuration (XDG compliant)
+    "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 
     # Scripts
     "${HOME}/.local/bin/cht.sh"
