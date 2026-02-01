@@ -141,21 +141,34 @@ alias reconnect="systemctl restart NetworkManager"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # For Poetry
-export PATH="/home/fespino/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
 
-# pnpm
-export PNPM_HOME="/home/fespino/.local/share/pnpm"
+
+. "$HOME/.local/bin/env"
+
+# pnpm (cross-platform)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+else
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+fi
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-
 # fzf preview with bat
 alias p='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+
+# Docker CLI completions (if available)
+if [[ -d "$HOME/.docker/completions" ]]; then
+  fpath=($HOME/.docker/completions $fpath)
+  autoload -Uz compinit
+  compinit
+fi
