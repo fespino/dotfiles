@@ -28,11 +28,12 @@ This roadmap transforms a collection of config files into a cross-platform boots
 ### Phase 0: Initial Fixes
 **Goal**: Fix critical gaps in current dotfiles before building the bootstrap system
 **Depends on**: Nothing (first phase)
-**Requirements**: INIT-01, INIT-02, INIT-03
+**Requirements**: INIT-01, INIT-02, INIT-03, INIT-04
 **Success Criteria** (what must be TRUE):
   1. `.gitignore` exists and prevents committing secrets (*.pem, .env*, .ssh/, credentials)
   2. XDG base directories are set in shell config (`XDG_CONFIG_HOME`, `XDG_DATA_HOME`, `XDG_CACHE_HOME`)
   3. All hardcoded `/Users/fespino/` and `/home/fespino/` paths in .zshrc replaced with `$HOME`
+  4. Pre-commit hook installed that scans for secrets (gitleaks or detect-secrets)
 **Plans**: TBD
 
 Plans:
@@ -111,12 +112,13 @@ Plans:
 ### Phase 6: Documentation
 **Goal**: Users can understand, use, and modify the dotfiles independently
 **Depends on**: Phase 4 (configs exist to document)
-**Requirements**: DOC-01, DOC-02, DOC-03, DOC-04
+**Requirements**: DOC-01, DOC-02, DOC-03, DOC-04, DOC-05
 **Success Criteria** (what must be TRUE):
   1. README explains installation, directory structure, and usage
   2. Config files contain inline comments explaining each section
   3. Decision log documents why specific tools/approaches were chosen
   4. Keybinding reference exists for quick tmux and neovim shortcut lookup
+  5. CLAUDE.md provides context for Claude Code (structure, conventions, anti-patterns)
 **Plans**: TBD
 
 Plans:
@@ -175,4 +177,4 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 *Created: 2026-02-01*
 *Updated: 2026-02-01 — added Phase 0, v2 milestone (Phases 7-8)*
 *Depth: standard (9 phases across 2 milestones)*
-*Coverage: 33/33 requirements mapped (26 v1 + 7 v2)*
+*Coverage: 35/35 requirements mapped (28 v1 + 7 v2)*

@@ -10,6 +10,7 @@
 - [ ] **INIT-01**: Repository has .gitignore preventing secrets from being committed
 - [ ] **INIT-02**: XDG base directories configured to reduce home directory clutter
 - [ ] **INIT-03**: Existing .zshrc hardcoded paths fixed to use $HOME
+- [ ] **INIT-04**: Pre-commit hooks scan for secrets before allowing commits
 
 ### Bootstrap
 
@@ -51,6 +52,7 @@
 - [ ] **DOC-02**: Config files contain inline comments explaining sections
 - [ ] **DOC-03**: Decision log documents why specific tools/approaches were chosen
 - [ ] **DOC-04**: Keybinding reference provides quick lookup for tmux, neovim shortcuts
+- [ ] **DOC-05**: CLAUDE.md provides context for Claude Code to work with dotfiles
 
 ## v2 Requirements
 
@@ -87,6 +89,7 @@
 | INIT-01 | Phase 0 | Pending |
 | INIT-02 | Phase 0 | Pending |
 | INIT-03 | Phase 0 | Pending |
+| INIT-04 | Phase 0 | Pending |
 | BOOT-01 | Phase 1 | Pending |
 | BOOT-02 | Phase 1 | Pending |
 | BOOT-03 | Phase 1 | Pending |
@@ -110,6 +113,7 @@
 | DOC-02 | Phase 6 | Pending |
 | DOC-03 | Phase 6 | Pending |
 | DOC-04 | Phase 6 | Pending |
+| DOC-05 | Phase 6 | Pending |
 | BOOT-05 | Phase 7 (v2) | Pending |
 | BOOT-06 | Phase 7 (v2) | Pending |
 | BOOT-07 | Phase 7 (v2) | Pending |
@@ -119,9 +123,9 @@
 | APP-06 | Phase 8 (v2) | Pending |
 
 **Coverage:**
-- v1 requirements: 26 total (Phases 0-6)
+- v1 requirements: 28 total (Phases 0-6)
 - v2 requirements: 7 total (Phases 7-8)
-- Mapped to phases: 33
+- Mapped to phases: 35
 - Unmapped: 0
 
 ---
