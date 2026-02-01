@@ -5,6 +5,12 @@
 
 ## v1 Requirements
 
+### Initial (Phase 0)
+
+- [ ] **INIT-01**: Repository has .gitignore preventing secrets from being committed
+- [ ] **INIT-02**: XDG base directories configured to reduce home directory clutter
+- [ ] **INIT-03**: Existing .zshrc hardcoded paths fixed to use $HOME
+
 ### Bootstrap
 
 - [ ] **BOOT-01**: User can run `./install.sh` to set up entire environment
@@ -75,6 +81,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| INIT-01 | Phase 0 | Pending |
+| INIT-02 | Phase 0 | Pending |
+| INIT-03 | Phase 0 | Pending |
 | BOOT-01 | Phase 1 | Pending |
 | BOOT-02 | Phase 1 | Pending |
 | BOOT-03 | Phase 1 | Pending |
@@ -100,8 +109,8 @@
 | DOC-04 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 23 total
-- Mapped to phases: 23
+- v1 requirements: 26 total
+- Mapped to phases: 26
 - Unmapped: 0
 
 ---
