@@ -22,7 +22,7 @@
 ### Shell
 
 - [ ] **SHELL-01**: Zsh config works on both Mac and Linux with correct paths
-- [ ] **SHELL-02**: Zsh plugins managed via Antidote (replaces oh-my-zsh)
+- [ ] **SHELL-02**: Zsh plugins managed via Antidote (replaces oh-my-zsh framework, but preserves oh-my-zsh git plugin shortcuts like `gco`, `gp`, etc.)
 - [ ] **SHELL-03**: Prompt rendered via Starship with custom configuration
 - [ ] **SHELL-04**: User can create `~/.zshrc.local` for machine-specific overrides
 

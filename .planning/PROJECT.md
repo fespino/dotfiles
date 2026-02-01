@@ -36,8 +36,9 @@ New machine to development-ready in minutes with a single command.
 
 - i3 window manager config — Linux desktop-specific, not needed for both platforms
 - GUI application configs — focus on terminal-based development
-- Work-specific configs — this is personal dev environment only
 - Docker/container setup — separate concern from dotfiles
+
+*Note: Work-specific configs ARE in scope — this is a freelancer setup for both personal and client work.*
 
 ## Context
 
@@ -53,8 +54,8 @@ New machine to development-ready in minutes with a single command.
 - Config locations may differ between systems
 
 **Target systems:**
-- macOS (primary development machine)
-- Debian-based Linux (servers, secondary machines)
+- Debian-based Linux (primary for heavy development work)
+- macOS (portable machine for high-level/AI-assisted development)
 
 ## Constraints
 
@@ -71,5 +72,24 @@ New machine to development-ready in minutes with a single command.
 | Single install.sh vs Makefile | Simpler UX, one command to remember, can still be modular internally | — Pending |
 | Backup and replace strategy | Safe default, preserves user's existing configs, reversible | — Pending |
 
+## Backlog
+
+Items to consider for future phases (from NOTES.md):
+
+**Phase 4 (Application Configs):**
+- Preserve oh-my-zsh git shortcuts (`gco`, `gp`, etc.) when configuring shell
+- LazyVim release tracking — script to check for new releases and assist with rebasing
+
+**Phase 6 (Documentation):**
+- Git/GitHub shortcuts reference — document all git aliases including oh-my-zsh plugin shortcuts
+
+**v2 or Extra Phases:**
+- `bin/cht.sh` — review and potentially replace with more robust solution
+- fzf usage patterns — identify and implement useful fzf integrations
+- Environment sync — detect drift between machines, sync packages/versions
+- tmux/tpm packages — identify useful tmux plugins
+- Neovim workflow improvements — review and optimize vim configuration
+- Kitty/zsh improvements — review for potential enhancements
+
 ---
-*Last updated: 2026-02-01 after initialization*
+*Last updated: 2026-02-01 — Phase 0 complete, backlog items added from NOTES.md*
