@@ -295,6 +295,14 @@ main() {
     printf "Setting up dotfiles on %b%s%b...\n" "$COLOR_GREEN" "$os" "$COLOR_RESET"
     echo ""
 
+    # Initialize git submodules (nvim config, etc.)
+    if [[ -f "${DOTFILES_DIR}/.gitmodules" ]]; then
+        info "Initializing git submodules..."
+        execute git -C "$DOTFILES_DIR" submodule update --init --recursive
+        success "Submodules initialized"
+        echo ""
+    fi
+
     # Track results for summary
     local linked=0
     local skipped=0
