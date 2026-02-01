@@ -14,7 +14,7 @@ This roadmap transforms a collection of config files into a cross-platform boots
 - [ ] **Phase 1: Foundation** - Safety patterns, directory structure, core install.sh
 - [ ] **Phase 2: Shell Configuration** - Zsh with Antidote + Starship, cross-platform paths
 - [ ] **Phase 3: Package Management** - Brewfile for Mac, apt list for Debian, CLI tools
-- [ ] **Phase 4: Application Configs** - Kitty, tmux, neovim with auto-bootstrap
+- [ ] **Phase 4: Application Configs** - Kitty, tmux, neovim, gh CLI with auto-bootstrap
 - [ ] **Phase 5: Language Runtimes** - Node, Python via mise; optional Elixir, Rust
 - [ ] **Phase 6: Documentation** - README, inline comments, decision log, keybindings
 
@@ -82,14 +82,17 @@ Plans:
 - [ ] 03-01: TBD
 
 ### Phase 4: Application Configs
-**Goal**: Terminal applications are configured and ready to use after install
+**Goal**: Terminal applications and dev tools are configured and ready to use after install
 **Depends on**: Phase 3
-**Requirements**: APP-01, APP-02, APP-03, APP-04
+**Requirements**: APP-01, APP-02, APP-03, APP-04, APP-07, APP-08, APP-09
 **Success Criteria** (what must be TRUE):
   1. Kitty terminal config is symlinked and kitty launches with custom settings
   2. Tmux config is symlinked and TPM auto-installs plugins on first run
   3. Neovim config is symlinked and lazy.nvim auto-bootstraps on first launch
   4. Nerd Fonts are installed and terminal displays icons correctly
+  5. gh CLI config is symlinked with editor, browser, and protocol settings
+  6. gh aliases are available for common workflows (e.g., `gh co`, `gh pv`)
+  7. Git aliases integrate with gh (e.g., `git pr` runs `gh pr create`)
 **Plans**: TBD
 
 Plans:
@@ -177,4 +180,4 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 *Created: 2026-02-01*
 *Updated: 2026-02-01 — added Phase 0, v2 milestone (Phases 7-8)*
 *Depth: standard (9 phases across 2 milestones)*
-*Coverage: 35/35 requirements mapped (28 v1 + 7 v2)*
+*Coverage: 38/38 requirements mapped (31 v1 + 7 v2)*

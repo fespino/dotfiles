@@ -32,6 +32,9 @@
 - [ ] **APP-02**: Tmux config symlinked with TPM auto-installed on first run
 - [ ] **APP-03**: Neovim config symlinked with lazy.nvim auto-bootstrapped
 - [ ] **APP-04**: Nerd Fonts installed for terminal icons
+- [ ] **APP-07**: gh CLI config symlinked with custom settings (editor, browser, protocol)
+- [ ] **APP-08**: gh aliases configured for common workflows
+- [ ] **APP-09**: Git aliases integrate with gh (e.g., `git pr` → `gh pr create`)
 
 ### Packages
 
@@ -105,6 +108,9 @@
 | APP-02 | Phase 4 | Pending |
 | APP-03 | Phase 4 | Pending |
 | APP-04 | Phase 4 | Pending |
+| APP-07 | Phase 4 | Pending |
+| APP-08 | Phase 4 | Pending |
+| APP-09 | Phase 4 | Pending |
 | LANG-01 | Phase 5 | Pending |
 | LANG-02 | Phase 5 | Pending |
 | LANG-03 | Phase 5 | Pending |
@@ -123,9 +129,9 @@
 | APP-06 | Phase 8 (v2) | Pending |
 
 **Coverage:**
-- v1 requirements: 28 total (Phases 0-6)
+- v1 requirements: 31 total (Phases 0-6)
 - v2 requirements: 7 total (Phases 7-8)
-- Mapped to phases: 35
+- Mapped to phases: 38
 - Unmapped: 0
 
 ---
