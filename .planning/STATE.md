@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-01)
 
 **Core value:** New machine to development-ready in minutes with a single command.
-**Current focus:** Phase 0 - Initial Fixes (Complete)
+**Current focus:** Phase 1 - Foundation
 
 ## Current Position
 
-Phase: 0 of 6 (Initial Fixes)
-Plan: 2 of 2 in current phase
-Status: Phase complete
-Last activity: 2026-02-01 - Completed 00-02-PLAN.md
+Phase: 1 of 6 (Foundation)
+Plan: 0 of TBD in current phase
+Status: Ready to plan
+Last activity: 2026-02-01 - Phase 0 verified and complete
 
 Progress: [==........] 20%
 

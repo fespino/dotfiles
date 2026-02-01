@@ -7,10 +7,10 @@
 
 ### Initial (Phase 0)
 
-- [ ] **INIT-01**: Repository has .gitignore preventing secrets from being committed
-- [ ] **INIT-02**: XDG base directories configured to reduce home directory clutter
-- [ ] **INIT-03**: Existing .zshrc hardcoded paths fixed to use $HOME
-- [ ] **INIT-04**: Pre-commit hooks scan for secrets before allowing commits
+- [x] **INIT-01**: Repository has .gitignore preventing secrets from being committed
+- [x] **INIT-02**: XDG base directories configured to reduce home directory clutter
+- [x] **INIT-03**: Existing .zshrc hardcoded paths fixed to use $HOME
+- [x] **INIT-04**: Pre-commit hooks scan for secrets before allowing commits
 
 ### Bootstrap
 
@@ -89,10 +89,10 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INIT-01 | Phase 0 | Pending |
-| INIT-02 | Phase 0 | Pending |
-| INIT-03 | Phase 0 | Pending |
-| INIT-04 | Phase 0 | Pending |
+| INIT-01 | Phase 0 | Complete |
+| INIT-02 | Phase 0 | Complete |
+| INIT-03 | Phase 0 | Complete |
+| INIT-04 | Phase 0 | Complete |
 | BOOT-01 | Phase 1 | Pending |
 | BOOT-02 | Phase 1 | Pending |
 | BOOT-03 | Phase 1 | Pending |

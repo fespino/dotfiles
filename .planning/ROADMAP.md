@@ -10,7 +10,7 @@ This roadmap transforms a collection of config files into a cross-platform boots
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 0: Initial Fixes** - Address critical gaps in current dotfiles
+- [x] **Phase 0: Initial Fixes** - Address critical gaps in current dotfiles
 - [ ] **Phase 1: Foundation** - Safety patterns, directory structure, core install.sh
 - [ ] **Phase 2: Shell Configuration** - Zsh with Antidote + Starship, cross-platform paths
 - [ ] **Phase 3: Package Management** - Brewfile for Mac, apt list for Debian, CLI tools
@@ -37,8 +37,8 @@ This roadmap transforms a collection of config files into a cross-platform boots
 **Plans**: 2 plans
 
 Plans:
-- [ ] 00-01-PLAN.md — Create .gitignore, add XDG variables to .zshrc, verify no hardcoded paths (INIT-01, INIT-02, INIT-03)
-- [ ] 00-02-PLAN.md — Install pre-commit with gitleaks hook for secret scanning (INIT-04)
+- [x] 00-01-PLAN.md — Create .gitignore, add XDG variables to .zshrc, verify no hardcoded paths (INIT-01, INIT-02, INIT-03)
+- [x] 00-02-PLAN.md — Install pre-commit with gitleaks hook for secret scanning (INIT-04)
 
 ### Phase 1: Foundation
 **Goal**: User can run install.sh to safely set up symlinks with backup protection
@@ -166,7 +166,7 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 0. Initial Fixes | 0/2 | Planned | - |
+| 0. Initial Fixes | 2/2 | Complete | 2026-02-01 |
 | 1. Foundation | 0/TBD | Not started | - |
 | 2. Shell Configuration | 0/TBD | Not started | - |
 | 3. Package Management | 0/TBD | Not started | - |
