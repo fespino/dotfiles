@@ -53,7 +53,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md — Create install.sh with OS detection, backup, symlinks, dry-run mode (BOOT-01, BOOT-02, BOOT-03, BOOT-04)
+- [x] 01-01-PLAN.md — Create install.sh with OS detection, backup, symlinks, dry-run mode (BOOT-01, BOOT-02, BOOT-03, BOOT-04)
 
 ### Phase 2: Shell Configuration
 **Goal**: User has a fast, modern zsh setup that works identically on Mac and Linux
@@ -167,7 +167,7 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 0. Initial Fixes | 2/2 | Complete | 2026-02-01 |
-| 1. Foundation | 0/1 | Planned | - |
+| 1. Foundation | 1/1 | Complete | 2026-02-01 |
 | 2. Shell Configuration | 0/TBD | Not started | - |
 | 3. Package Management | 0/TBD | Not started | - |
 | 4. Application Configs | 0/TBD | Not started | - |
