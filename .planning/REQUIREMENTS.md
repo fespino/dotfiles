@@ -14,10 +14,10 @@
 
 ### Bootstrap
 
-- [ ] **BOOT-01**: User can run `./install.sh` to set up entire environment
-- [ ] **BOOT-02**: Script detects OS (Mac vs Linux) and adjusts behavior accordingly
-- [ ] **BOOT-03**: Script backs up existing config files before replacing with symlinks
-- [ ] **BOOT-04**: Script supports dry-run mode to preview changes without executing
+- [x] **BOOT-01**: User can run `./install.sh` to set up entire environment
+- [x] **BOOT-02**: Script detects OS (Mac vs Linux) and adjusts behavior accordingly
+- [x] **BOOT-03**: Script backs up existing config files before replacing with symlinks
+- [x] **BOOT-04**: Script supports dry-run mode to preview changes without executing
 
 ### Shell
 
@@ -93,10 +93,10 @@
 | INIT-02 | Phase 0 | Complete |
 | INIT-03 | Phase 0 | Complete |
 | INIT-04 | Phase 0 | Complete |
-| BOOT-01 | Phase 1 | Pending |
-| BOOT-02 | Phase 1 | Pending |
-| BOOT-03 | Phase 1 | Pending |
-| BOOT-04 | Phase 1 | Pending |
+| BOOT-01 | Phase 1 | Complete |
+| BOOT-02 | Phase 1 | Complete |
+| BOOT-03 | Phase 1 | Complete |
+| BOOT-04 | Phase 1 | Complete |
 | SHELL-01 | Phase 2 | Pending |
 | SHELL-02 | Phase 2 | Pending |
 | SHELL-03 | Phase 2 | Pending |

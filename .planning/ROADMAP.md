@@ -11,7 +11,7 @@ This roadmap transforms a collection of config files into a cross-platform boots
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 0: Initial Fixes** - Address critical gaps in current dotfiles
-- [ ] **Phase 1: Foundation** - Safety patterns, directory structure, core install.sh
+- [x] **Phase 1: Foundation** - Safety patterns, directory structure, core install.sh
 - [ ] **Phase 2: Shell Configuration** - Zsh with Antidote + Starship, cross-platform paths
 - [ ] **Phase 3: Package Management** - Brewfile for Mac, apt list for Debian, CLI tools
 - [ ] **Phase 4: Application Configs** - Kitty, tmux, neovim, gh CLI with auto-bootstrap
