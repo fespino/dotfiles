@@ -1,0 +1,8 @@
+# Pre-commit hooks for dotfiles repository
+# Run `pre-commit install` after cloning to activate
+
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.2
+    hooks:
+      - id: gitleaks
