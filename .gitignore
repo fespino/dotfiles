@@ -1,0 +1,70 @@
+# Dotfiles Repository .gitignore
+# Purpose: Prevent accidental commits of secrets, credentials, and sensitive files
+# Created: 2026-02-01
+
+#-------------------------------------------------------------------------------
+# SECRETS - Never commit these
+#-------------------------------------------------------------------------------
+
+# Private keys and certificates
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+# Allow public keys
+!*.pub
+
+# SSH directory (contains sensitive config)
+.ssh/
+
+# Environment files
+.env
+.env.*
+.envrc
+
+# Local override files (machine-specific secrets)
+*.local
+.secrets
+.secrets.*
+
+# Credential files
+.netrc
+.npmrc
+.pypirc
+credentials
+credentials.*
+*credentials*
+
+# Cloud provider credentials
+.aws/credentials
+.aws/config
+.gcloud/
+.azure/
+
+# Application tokens
+.docker/config.json
+.kube/config
+
+#-------------------------------------------------------------------------------
+# HISTORY FILES - May contain sensitive commands
+#-------------------------------------------------------------------------------
+.bash_history
+.zsh_history
+.python_history
+.node_repl_history
+.lesshst
+.wget-hsts
+
+#-------------------------------------------------------------------------------
+# LOCAL/EDITOR FILES
+#-------------------------------------------------------------------------------
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/settings.json
