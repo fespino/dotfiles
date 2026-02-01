@@ -50,10 +50,10 @@ Plans:
   3. Existing config files are backed up to timestamped directory before symlink creation
   4. User can run `./install.sh --dry-run` to preview changes without executing
   5. Running install.sh twice produces same result without errors (idempotent)
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 01-01: TBD
+- [ ] 01-01-PLAN.md — Create install.sh with OS detection, backup, symlinks, dry-run mode (BOOT-01, BOOT-02, BOOT-03, BOOT-04)
 
 ### Phase 2: Shell Configuration
 **Goal**: User has a fast, modern zsh setup that works identically on Mac and Linux
@@ -167,7 +167,7 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 0. Initial Fixes | 2/2 | Complete | 2026-02-01 |
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/1 | Planned | - |
 | 2. Shell Configuration | 0/TBD | Not started | - |
 | 3. Package Management | 0/TBD | Not started | - |
 | 4. Application Configs | 0/TBD | Not started | - |
@@ -179,6 +179,6 @@ Phases execute in numeric order: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 ---
 *Created: 2026-02-01*
-*Updated: 2026-02-01 — Phase 0 planned (2 plans in 1 wave)*
+*Updated: 2026-02-01 — Phase 1 planned (1 plan in 1 wave)*
 *Depth: standard (9 phases across 2 milestones)*
 *Coverage: 38/38 requirements mapped (31 v1 + 7 v2)*
