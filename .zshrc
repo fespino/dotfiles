@@ -137,6 +137,8 @@ alias kittyupdate='curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /de
 
 alias up="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove"
 
+alias lg="lazygit"
+
 # Tailscale nodes
 ## GCP 
 alias goprod="ssh root@platform-prod"
